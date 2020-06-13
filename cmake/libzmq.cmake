@@ -6,7 +6,7 @@
 #                                                                               
 #  ......                                                      
 
-MACRO(LOAD_LIBLIBZMQ os arch)                                                   
+MACRO(LOAD_LIBZMQ os arch)                                                   
     SET(3RDPARTY_DIR ${PROJECT_SOURCE_DIR}/3rdparty/target/${${os}}_${${arch}}) 
     MESSAGE(STATUS "3RDPARTY_DIR: ${3RDPARTY_DIR}")                             
     FIND_FILE(LIBZMQ_INCLUDE_DIR include ${3RDPARTY_DIR} NO_DEFAULT_PATH)          
