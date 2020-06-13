@@ -2,7 +2,7 @@
 function(spdlog_extract_version)
     file(READ "${CMAKE_CURRENT_LIST_DIR}/include/spdlog/version.h" file_contents)
     string(REGEX MATCH "SPDLOG_VER_MAJOR ([0-9]+)" _ "${file_contents}")
-    if(NOT CMAKE_MATCH_COUNT EQUAL 1)  
+    if(NOT CMAKE_MATCH_COUNT EQUAL 1)
         message(FATAL_ERROR "Could not extract major version number from spdlog/version.h")
     endif()
     set(ver_major ${CMAKE_MATCH_1})
