@@ -13,3 +13,7 @@
 [submodule "3rdparty/serail"]
 	path = 3rdparty/serial
 	url = https://github.com/wjwwood/serial.git
+
+[submodule "3rdparty/libsodium"]
+	path = 3rdparty/libsodium
+	url = https://github.com/jedisct1/libsodium.git
