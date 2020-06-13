@@ -1,5 +1,16 @@
-
 [submodule "3rdparty/spdlog"]
 	path = 3rdparty/spdlog
-	url = https://github.com/gabime/spdlog.git 
+	url = https://github.com/gabime/spdlog.git
 	branch = v1.x
+
+[submodule "3rdparty/cppzmq"]
+	path = 3rdparty/cppzmq
+	url = https://github.com/zeromq/cppzmq.git
+
+[submodule "3rdparty/libzmq"]
+	path = 3rdparty/libzmq
+	url = https://github.com/zeromq/libzmq.git
+
+[submodule "3rdparty/serail"]
+	path = 3rdparty/serial
+	url = https://github.com/wjwwood/serial.git
