@@ -1,0 +1,26 @@
+// See README.txt for information and build instructions.
+//
+// Note: START and END tags are used in comments to define sections used in
+// tutorials.  They are not part of the syntax for Protocol Buffers.
+//
+// To get an in-depth walkthrough of this file and the related examples, see:
+// https://developers.google.com/protocol-buffers/docs/tutorials
+
+// [START declaration]
+
+syntax = "proto3";
+package LSLAM;
+
+import "RangeSensorMsg.proto";
+import "CliffSensorMsg.proto";
+message STM32MsgToCostMap{
+
+RangeSensorMsg range_sensor_msg =1; //超声波是否有障碍物
+
+CliffSensorMsg cliff_sensor_msg =2;
+
+bool is_along_edge_mode =3;
+
+bool is_cleaning  =4;
+
+}

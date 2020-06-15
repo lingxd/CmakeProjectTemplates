@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package STM32;
+
+import "Bmi160ToData.proto";
+/**
+  *  uint8 eDirection :   
+                            0 停止 
+                            1 前进
+                            2 后退后左转
+                            3 后退后右转
+                            4 左转
+                            5 右转
+                            6 原地旋转
+                            7 自动
+                            8 回充
+                            9 正在充电
+                            10 沿边模式
+                            11 后退
+
+    uint32 unionEEROR :   
+                            第0位为1：  电池错误  not
+                            第1位为1：  左轮错误
+                            第2位为1：  右轮错误
+                            第3位为1：  左前悬空传感器错误  not
+                            第4位为1：  左后悬空传感器错误  not
+                            第5位为1：  右前悬空传感器错误  not
+                            第6位为1：  右后悬空传感器错误  not
+                            第7位为1：  超声波错误  not
+                            第8位为1：  碰撞传感器卡住等错误  not
+                            第9位为1：  滚刷（缠绕和模组异常）     
+                            第10位为1： 边刷（缠绕和模组异常）
+                            第11位为1： 滤网在不在  not
+                            第12位为1： 滤网脏不脏  not
+                            第13位为1： 沿边传感器  not
+                            第14位为1： 启动时机器人倾斜  not
+                            第15位为1： 风机损坏  not
+        
+    uint32 unionAbnormal: 
+                            第0位为1：  电池低电量异常  not等一个低电量标准
+                            第1位为1：  左轮悬空异常  
+                            第2位为1：  右轮悬空异常
+                            第3位为1：  左前悬空传感器悬空异常
+                            第4位为1：  左后悬空传感器悬空异常
+                            第5位为1：  右前悬空传感器悬空异常
+                            第6位为1：  左后悬空传感器悬空异常
+                            第7位为1：  超声波检测到障碍物异常
+                            第8位为1：  左碰撞
+                            第9位为1：  右碰撞
+                            第10位为1： 尘盒不在 
+                            第11位为1： 是否在充电座
+    uint8 KeyCommand:
+                            0 停止
+                            1 启动
+                            2 回冲
+  */
+message RobotState
+{
+    uint32      ucRemainBattery  = 1;    //当前电量值 0-100 直接拿来用即可，不需要解析每一位数据
+    uint32      eDirection       = 2;    //当前扫地机器人状态 为一个枚举类型，直接分析数值即可
+    uint32      unionEEROR       = 3;    //共32位，为扫地机器人系统错误态 
+    uint32      unionAbnormal    = 4;    //共32为，为扫地机器人系统异常态
+    uint32      ucUserNumber     = 5;    //客户编号    暂未设定
+    uint32      ucFirmVersion    = 6;    //固件版本号  暂未设定
+    uint32      KeyCommand       = 7;    //按键命令
+    int32       CurrentAngle     = 8;    //当前角度    一个确定的数值，直接用即可
+}
+
+message Stm32ToState
+{
+    RobotState  robotState       = 1;    //机器人状态(见上面)
+    
+    Bmi160ToData bmi160ToData    = 2;
+}  

@@ -1,0 +1,47 @@
+// A very simple protocol definition, consisting of only
+// one message.
+// 02
+
+syntax = "proto3";
+
+package STM32;
+
+
+message GyroOffset 			
+{
+	float gyrooffsetX = 1;
+	
+	float gyrooffsetY = 2;
+	
+	float gyrooffsetZ = 3;
+	
+}
+
+message GyroAccData
+{
+	uint32 	accX = 1;  //加速度计x轴加速度
+	
+	uint32  accY = 2;  //加速度计y轴加速度
+	
+	uint32  accZ = 3;  //加速度计z轴加速度
+	
+	uint32  gryoX = 4; //陀螺仪x轴原始数据
+	
+	uint32  gryoY = 5; //陀螺仪y轴原始数据
+	
+	uint32  gryoZ = 6; //陀螺仪z轴原始数据
+}
+
+message IsGetGyroOffset
+{
+	bool IsGetStatus = 1;
+}
+
+message Bmi160ToData
+{
+	GyroOffset gyroOffset = 1;
+
+	GyroAccData gyroAccData = 2;
+
+	IsGetGyroOffset isGetGyroOffset = 3;
+}

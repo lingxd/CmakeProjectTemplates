@@ -8,7 +8,7 @@ INCLUDE(cmake/utils.cmake)
                         
 ROBOT_APP_EXTRACT_VERSION()
 
-PROJECT(ROBOTState VERSION ${ROBOT_APP_VERSION} LANGUAGES CXX )
+PROJECT(RobotState VERSION ${ROBOT_APP_VERSION} LANGUAGES CXX )
 OPTION(BUILD_TESTS "Build with tests" ON)
 
 MESSAGE(INFO "--------------------------------")

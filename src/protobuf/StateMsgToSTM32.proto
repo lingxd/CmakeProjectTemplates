@@ -1,0 +1,33 @@
+// See README.txt for information and build instructions.
+//
+// Note: START and END tags are used in comments to define sections used in
+// tutorials.  They are not part of the syntax for Protocol Buffers.
+//
+// To get an in-depth walkthrough of this file and the related examples, see:
+// https://developers.google.com/protocol-buffers/docs/tutorials
+
+// [START declaration]
+
+syntax = "proto3";
+package STM32;
+
+message PointInt{
+	int32 x = 1; 				//x坐标
+	int32 y = 2; 				//y坐标
+}
+
+message CurrentPosition{
+	int32 x = 1; 				//机器人在世界坐标系中x坐标，单位毫米
+	int32 y = 2; 				//机器人在世界坐标系中y坐标，单位毫米
+	int32 theta = 3; 			//机器人朝向，单位0.1度
+}
+
+message PlanMsgToState{
+	PointInt point1 = 1;  			//计划要去的点位1
+	PointInt point2 = 2;  			//计划要去的点位2
+	PointInt point3 = 3;  			//计划要去的点位3
+	PointInt point4 = 4;  			//计划要去的点位4
+	PointInt point5 = 5;  			//计划要去的点位5
+
+//	CurrentPosition curpos = 6; //当前位置
+}

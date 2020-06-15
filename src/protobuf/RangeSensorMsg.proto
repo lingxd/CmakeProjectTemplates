@@ -1,0 +1,20 @@
+// See README.txt for information and build instructions.
+//
+// Note: START and END tags are used in comments to define sections used in
+// tutorials.  They are not part of the syntax for Protocol Buffers.
+//
+// To get an in-depth walkthrough of this file and the related examples, see:
+// https://developers.google.com/protocol-buffers/docs/tutorials
+
+// [START declaration]
+
+syntax = "proto3";
+package LSLAM;
+message RangeSensorMsg{
+
+double field_of_view =1; //		3.14/4
+double min_range =2; //			0.05m
+double max_range =3; //			1m
+double range =4; //				如果有障碍物信号0.15  如果无障碍物信号>3
+
+}
